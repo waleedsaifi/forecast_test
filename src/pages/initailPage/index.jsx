@@ -13,10 +13,13 @@ const CITIES_COUNT = 18;
 const APP_ID = process.env.WeatherAPI || "920ecebafee2bcc8878d5e974c9b753d";
 
 export default function Index() {
+  const [selected, setSelected] = React.useState(false);
+  const [selectedItem, setSelectedItem] = React.useState(0);
   const [citiesArray] = useState(getRandomInt(Cities, CITIES_COUNT));
   const [selectedCity, setSelectedCity] = useState();
   const [selectedCityData, setSelectedCityData] = useState({});
   const [open, setOpen] = React.useState(false);
+  const [isClick, setIsClick] = React.useState(false);
   const [setting, setSetting] = React.useState();
   console.log("setting", setting);
   const [selectedCityForecast, setSelectedCityForecast] = useState([]);
@@ -122,6 +125,10 @@ export default function Index() {
               data={x}
               index={index}
               setSelectedCity={setSelectedCity}
+              setSelectedItem={setSelectedItem}
+              setSelected={setSelected}
+              selected={selected}
+              selectedItem={selectedItem}
             />
           </Grid>
         ))}
