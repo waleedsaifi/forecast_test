@@ -1,0 +1,11 @@
+.header_txt {
+  color: white;
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+.header_bg {
+  padding: 30px;
+}
+.header_right {
+  display: flex;
+}

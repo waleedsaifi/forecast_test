@@ -1,0 +1,11 @@
+.card_main {
+  padding: 20px;
+  border: 2px solid #0a84ff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card_txt {
+  color: white;
+  font-size: 24px !important;
+}
