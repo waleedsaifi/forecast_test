@@ -10,7 +10,6 @@ import WeatherComp from "../../components/weatherComp";
 const API_URL = "https://api.openweathermap.org/data/2.5";
 const CITIES_COUNT = 18;
 const APP_ID = process.env.WeatherAPI || "920ecebafee2bcc8878d5e974c9b753d";
-let city = "Lahore";
 
 export default function Index() {
   const [citiesArray] = useState(getRandomInt(Cities, CITIES_COUNT));
@@ -48,7 +47,7 @@ export default function Index() {
       >
         {citiesArray.map((x) => (
           <Grid item xs={2}>
-            <CityCard data={x} />
+            <CityCard data={x} setSelectedCity={setSelectedCity} />
           </Grid>
         ))}
       </Grid>
