@@ -6,19 +6,13 @@ import "./index.css";
 import { Cities } from "../../data/data";
 
 export default function Index() {
-  const [cities, setCities] = React.useState([]);
-  // function getRandomInt(cities, count) {
-  //   let item = [];
-  //   item = cities[Math.floor(Math.random() * count)];
-  //   console.log("item", item);
-  //   return item;
-  // }
+  const [cities] = React.useState(getRandomInt(Cities, 18));
 
-  useEffect(() => {
-    let array = Cities[Math.floor(Math.random() * Cities.length)];
-    console.log("array", array);
-    // setCities()
-  }, []);
+  function getRandomInt(cities, count) {
+    let shuffled = cities.sort(() => 0.5 - Math.random());
+    let selected = shuffled.slice(0, count);
+    return selected;
+  }
 
   return (
     <Box>
@@ -37,7 +31,7 @@ export default function Index() {
         spacing={2}
         sx={{ padding: "20px" }}
       >
-        {Cities.map((x) => (
+        {cities.map((x) => (
           <Grid item xs={2}>
             <CityCard data={x} />
           </Grid>
