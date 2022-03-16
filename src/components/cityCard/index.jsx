@@ -1,11 +1,13 @@
 import React from "react";
 import "./index.css";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 
-export default function index({ data }) {
+export default function index({ data, setSelectedCity }) {
   return (
-    <Box className="card_main">
-      <Typography className="card_txt">{data}</Typography>
-    </Box>
+    <Grid onClick={() => setSelectedCity(data)}>
+      <Box className="card_main">
+        <Typography className="card_txt">{data} </Typography>
+      </Box>
+    </Grid>
   );
 }
