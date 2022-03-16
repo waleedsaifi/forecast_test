@@ -27,11 +27,20 @@ export default function TransitionsModal({ open, setOpen, setSetting }) {
   const handleClose = () => setOpen(false);
   const units = ["standard", "metric", "imperial"];
   const time = ["AM/PM", "24h"];
-
+  const [selected, setSelected] = React.useState(false);
+  const [selectedItem, setSelectedItem] = React.useState(0);
   function handleSettings(data) {
     setSetting(data);
   }
-
+  function handleSelect(data, id) {
+    console.log("handleSelect ~ id", id);
+    console.log("Hello from data: ", data);
+    setSetting(data);
+    setSelectedItem(id);
+    if (!selected === true) {
+      setSelected(true);
+    }
+  }
   return (
     <div>
       <Modal
@@ -58,10 +67,18 @@ export default function TransitionsModal({ open, setOpen, setSetting }) {
                 marginTop: "10px",
               }}
             >
-              {units.map((x) => (
+              {units.map((x, index) => (
                 <Typography
-                  className="forecard_btn2"
-                  onClick={() => handleSettings(x)}
+                  // className="forecard_btn2"
+                  // onClick={() => handleSettings(x)}
+                  className={
+                    selected
+                      ? selectedItem === index
+                        ? "forecard_btn2_after"
+                        : "forecard_btn2_before"
+                      : "forecard_btn2_before"
+                  }
+                  onClick={() => handleSelect(x, index)}
                 >
                   {x}
                 </Typography>
@@ -79,7 +96,7 @@ export default function TransitionsModal({ open, setOpen, setSetting }) {
             >
               {time.map((x) => (
                 <Typography
-                  className="forecard_btn2"
+                  className="forecard_btn2_before"
                   onClick={() => handleSettings(x)}
                 >
                   {x}

@@ -3,13 +3,24 @@
   text-align: center;
   font-size: 26px !important;
 }
-.forecard_btn2 {
+.forecard_btn2_before {
   width: 150px;
   border: 2px solid #0a84ff;
   border-radius: 10px;
   text-align: center;
   margin-left: 15px;
   color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+.forecard_btn2_after {
+  width: 150px;
+  /* border: 2px solid #0a84ff; */
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 15px;
+  color: #0a84ff;
+  background-color: white;
   padding: 8px;
   cursor: pointer;
 }
