@@ -22,6 +22,11 @@ export default function Index() {
     return selected;
   }
 
+  function nanoToTime(nanoSeconds) {
+    let time = new Date(nanoSeconds);
+    return time;
+  }
+
   useEffect(async () => {
     if (selectedCity) {
       let res = await axios.get(
@@ -41,7 +46,10 @@ export default function Index() {
               Pick a day to see the full forecast
             </Typography>
           ) : (
-            <WeatherComp selectedCityData={selectedCityData} />
+            <WeatherComp
+              nanoToTime={nanoToTime}
+              selectedCityData={selectedCityData}
+            />
           )}
         </Grid>
       </Grid>
