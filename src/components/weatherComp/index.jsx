@@ -7,8 +7,7 @@ import { ReactComponent as HailSvg } from "../../images/icon-weather/weather-hai
 
 import "./index.css";
 export default function Index({ selectedCityData }) {
-  let { name, main, sys } = selectedCityData;
-  console.log("selectedCityData in Compoonet: ", selectedCityData?.weather);
+  console.log("selectedCityData in Compoonet: ", selectedCityData);
 
   function RenderSvg(param) {
     switch (param) {
@@ -34,7 +33,9 @@ export default function Index({ selectedCityData }) {
       {selectedCityData ? (
         <Grid container justifyContent="center" spacing={2} mt={20}>
           <Grid item sx={{ textAlign: "center" }}>
-            <Typography className="card_txt">{name}</Typography>
+            <Typography className="card_txt">
+              {selectedCityData?.name}
+            </Typography>
             {selectedCityData ? (
               RenderSvg(selectedCityData?.weather[0]?.main)
             ) : (
@@ -46,17 +47,21 @@ export default function Index({ selectedCityData }) {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography className="card_txt2">Temp: {main?.temp}</Typography>
             <Typography className="card_txt2">
-              Feels Like: {main?.feels_like}
+              Temp: {selectedCityData?.main?.temp}
             </Typography>
             <Typography className="card_txt2">
-              Humidity: {main?.humidity}%
+              Feels Like: {selectedCityData?.main?.feels_like}
             </Typography>
             <Typography className="card_txt2">
-              Sunrise: {sys?.sunrise}
+              Humidity: {selectedCityData?.main?.humidity}%
             </Typography>
-            <Typography className="card_txt">Sunset: {sys?.sunset}</Typography>
+            <Typography className="card_txt2">
+              Sunrise: {selectedCityData?.sys?.sunrise}
+            </Typography>
+            <Typography className="card_txt">
+              Sunset: {selectedCityData?.sys?.sunset}
+            </Typography>
           </Grid>
         </Grid>
       ) : null}

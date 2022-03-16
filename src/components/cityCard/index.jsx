@@ -11,7 +11,9 @@ export default function Index({
   selected,
   selectedItem,
 }) {
-  function handleSelect(id) {
+  function handleSelect(id, data) {
+    console.log("Hello from data: ", data);
+    setSelectedCity(data);
     setSelectedItem(id);
     if (!selected === true) {
       setSelected(true);
@@ -19,7 +21,7 @@ export default function Index({
   }
 
   return (
-    <Grid onClick={() => setSelectedCity(data)}>
+    <Grid>
       <Box
         className={
           selected
@@ -28,7 +30,7 @@ export default function Index({
               : "card_main_before"
             : "card_main_before"
         }
-        onClick={() => handleSelect(index)}
+        onClick={() => handleSelect(index, data)}
       >
         <Typography className="card_txt">{data} </Typography>
       </Box>

@@ -19,7 +19,7 @@ export default function Index() {
   const [selectedCity, setSelectedCity] = useState();
   const [selectedCityData, setSelectedCityData] = useState({});
   const [open, setOpen] = React.useState(false);
-  const [isClick, setIsClick] = React.useState(false);
+
   const [setting, setSetting] = React.useState();
 
   const [selectedCityForecast, setSelectedCityForecast] = useState([]);
@@ -36,6 +36,7 @@ export default function Index() {
   useEffect(async () => {
     console.log("Hello from  selectedCity: ", selectedCity);
     if (selectedCity) {
+      console.log("In Condotion");
       let res = await axios.get(
         `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}&units=${setting}`
       );
