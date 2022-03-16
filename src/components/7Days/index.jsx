@@ -12,7 +12,7 @@ export default function index({ selectedCityForecast }) {
           <Grid item sx={{ textAlign: "center", marginTop: "20px" }} xs={1}>
             {/* <Typography className="days_txt">{x.day}</Typography>
             <Box sx={{ width: "150px", height: "150px" }}>
-              <YourSvg fill="yellow" />
+              <YourSvg fill="yel low" />
             </Box> */}
             <Typography className="days_txt">{x.weather[0]?.main}</Typography>
             <Typography className="days_txt">
