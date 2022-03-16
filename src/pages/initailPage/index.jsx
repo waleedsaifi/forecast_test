@@ -31,7 +31,7 @@ export default function Index() {
 
   /****************Weather*******************/
   useEffect(async () => {
-    console.log("Hello from  setSelectedCityData UseEffect");
+    console.log("Hello from  selectedCity: ", selectedCity);
     if (selectedCity) {
       let res = await axios.get(
         `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}&units=${setting}`
