@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import CityCard from "../../components/cityCard";
 import "./index.css";
 import { Cities } from "../../data/data";
-
+import WeatherComp from "../../components/weatherComp";
 export default function Index() {
   const [cities, setCities] = React.useState([]);
   // function getRandomInt(cities, count) {
@@ -23,6 +23,7 @@ export default function Index() {
   return (
     <Box>
       <Header />
+      <WeatherComp />
       <Grid container justifyContent="center" mt={25}>
         <Grid item>
           <Typography className="mian_txt">
