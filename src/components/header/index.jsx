@@ -10,8 +10,7 @@ export default function Index({ setOpen }) {
     <>
       <Grid container justifyContent="space-between" className="header_bg">
         <Grid item>
-          <DateTime></DateTime>
-          {/* <Typography className="header_txt">3:25 PM</Typography> */}
+          <DateTime />
         </Grid>
         <Grid item className="header_right">
           <Typography className="header_txt" style={{ cursor: "pointer" }}>

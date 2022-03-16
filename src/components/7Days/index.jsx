@@ -2,9 +2,8 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { ReactComponent as YourSvg } from "../../images/icon-weather/weather-sunny.svg";
 import "./index.css";
-import { sevenDays } from "../../data/data.js";
+
 export default function index({ selectedCityForecast }) {
-  console.log("selectedCityForecast: ", selectedCityForecast);
   return (
     <>
       <Grid container justifyContent="space-evenly" mt={20}>
