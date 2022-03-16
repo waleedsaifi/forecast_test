@@ -4,4 +4,10 @@
   border-radius: 10px;
   text-align: center;
   margin-left: 15px;
+  color: white;
+}
+
+.card_txt2 {
+  color: white;
+  font-size: 26px !important;
 }
