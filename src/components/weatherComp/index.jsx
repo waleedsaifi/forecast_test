@@ -2,7 +2,8 @@ import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import { ReactComponent as YourSvg } from "../../images/icon-weather/weather-sunny.svg";
 import "./index.css";
-export default function index() {
+export default function index({ selectedCityData }) {
+  console.log("selectedCityData in Compoonet: ", selectedCityData);
   return (
     <>
       <Grid container justifyContent="center" spacing={4} mt={20}>
