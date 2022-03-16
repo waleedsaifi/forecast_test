@@ -15,7 +15,6 @@ export const DateTime = () => {
       <Typography className="header_txt">
         {date.toLocaleTimeString()}
       </Typography>
-      {/* <p> Date : {date.toLocaleDateString()}</p> */}
     </div>
   );
 };
