@@ -18,7 +18,7 @@ export default function Index() {
   const [selectedCityData, setSelectedCityData] = useState({});
   const [open, setOpen] = React.useState(false);
   const [setting, setSetting] = React.useState();
-  console.log("setting", setting);
+
   const [selectedCityForecast, setSelectedCityForecast] = useState([]);
 
   const [isCurrentWeather, setIsCurrentWeather] = useState(true);
@@ -29,15 +29,9 @@ export default function Index() {
     return selected;
   }
 
-  function nanoToTime(nanoSeconds) {
-    let time = new Date(nanoSeconds);
-    return time;
-  }
-
   /****************Weather*******************/
-
   useEffect(async () => {
-    console.log("hello");
+    console.log("Hello from  setSelectedCityData UseEffect");
     if (selectedCity) {
       let res = await axios.get(
         `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}&units=${setting}`
@@ -61,7 +55,6 @@ export default function Index() {
   return (
     <Box>
       <Header setOpen={setOpen} />
-
       <Grid container justifyContent="center" mt={25}>
         <Grid item>
           {!selectedCity ? (
@@ -71,10 +64,7 @@ export default function Index() {
           ) : (
             <>
               {isCurrentWeather ? (
-                <WeatherComp
-                  nanoToTime={nanoToTime}
-                  selectedCityData={selectedCityData}
-                />
+                <WeatherComp selectedCityData={selectedCityData} />
               ) : (
                 <SDays selectedCityForecast={selectedCityForecast} />
               )}
