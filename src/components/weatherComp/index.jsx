@@ -36,14 +36,9 @@ export default function Index({ selectedCityData }) {
             <Typography className="card_txt">
               {selectedCityData?.name}
             </Typography>
-            {selectedCityData ? (
-              RenderSvg(selectedCityData?.weather[0]?.main)
-            ) : (
-              <SunnySvg fill="yellow" />
-            )}
-
+            {/* // {RenderSvg(selectedCityData?.weather[0]?.main)} */}
             <Typography className="card_txt2">
-              {selectedCityData ? selectedCityData?.weather[0]?.main : ""}
+              {/* {selectedCityData ? selectedCityData?.weather[0]?.main : ""} */}
             </Typography>
           </Grid>
           <Grid item>

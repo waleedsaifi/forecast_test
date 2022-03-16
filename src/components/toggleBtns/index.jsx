@@ -5,7 +5,7 @@ export default function index({ setIsCurrentWeather, setIsClick, isClick }) {
   return (
     <Grid container justifyContent="center" mt={3}>
       <Grid item sx={{ textAlign: "center" }}>
-        <Typography className="card_txt">Forecast</Typography>
+        <Typography className="card_txt2">Forecast</Typography>
         <Box sx={{ display: "flex", marginTop: "20px" }}>
           <Box
             onClick={() => {
@@ -16,7 +16,7 @@ export default function index({ setIsCurrentWeather, setIsClick, isClick }) {
               isClick !== "Now" ? "forecard_btn_before" : "forecard_btn_after"
             }
           >
-            <Typography className="card_txt">Now</Typography>
+            <Typography className="card_txt2">Now</Typography>
           </Box>
           <Box
             onClick={() => {
@@ -29,7 +29,7 @@ export default function index({ setIsCurrentWeather, setIsClick, isClick }) {
                 : "forecard_btn_after"
             }
           >
-            <Typography className="card_txt">7 Days</Typography>
+            <Typography className="card_txt2">7 Days</Typography>
           </Box>
         </Box>
       </Grid>
