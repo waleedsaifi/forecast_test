@@ -5,13 +5,13 @@ import "./index.css";
 export default function index() {
   return (
     <>
-      <Grid container justifyContent="center" spacing={2} mt={20}>
-        <Grid item sx={{ textAlign: "center" }}>
+      <Grid container justifyContent="center" spacing={4} mt={20}>
+        <Grid item sx={{ textAlign: "center" }} xs={2}>
           <Typography className="card_txt">Orlando</Typography>
-          <YourSvg />
+          <YourSvg fill="yellow" />
           <Typography className="card_txt">Sunny</Typography>
         </Grid>
-        <Grid item>
+        <Grid item mt={8}>
           <Typography className="card_txt">Temp:78</Typography>
           <Typography className="card_txt">Feels Like 80</Typography>
           <Typography className="card_txt">Humidity:100%</Typography>
@@ -27,7 +27,7 @@ export default function index() {
               <Typography className="card_txt">Now</Typography>
             </Box>
             <Box className="forecard_btn">
-              <Typography className="card_txt">Now</Typography>
+              <Typography className="card_txt">7 Days</Typography>
             </Box>
           </Box>
         </Grid>

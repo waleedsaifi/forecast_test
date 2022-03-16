@@ -385,3 +385,48 @@ export const Cities = [
   "York",
   "Youngstown",
 ];
+
+export const sevenDays = [
+  {
+    day: "Mon",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Tue",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Wed",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Thu",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Fri",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Sat",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+  {
+    day: "Sun",
+    weather: "Sunny",
+    highest: "78",
+    lowest: "70",
+  },
+];

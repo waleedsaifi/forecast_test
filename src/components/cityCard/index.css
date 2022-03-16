@@ -1,11 +1,20 @@
-.card_main {
+.card_main_before {
   padding: 20px;
   border: 2px solid #0a84ff;
   border-radius: 10px;
   text-align: center;
+  color: white !important ;
+  cursor: pointer;
+}
+.card_main_after {
+  padding: 20px;
+  background-color: white;
+  color: #0a84ff !important ;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 24px !important;
 }
 
 .card_txt {
-  color: white;
   font-size: 24px !important;
 }

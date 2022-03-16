@@ -1,7 +1,7 @@
 import { Typography, Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import SDays from "../../components/7Days";
 import Header from "../../components/header";
 import CityCard from "../../components/cityCard";
 import "./index.css";
@@ -30,7 +30,8 @@ export default function Index() {
   return (
     <Box>
       <Header />
-      <WeatherComp />
+      {/* <WeatherComp /> */}
+      <SDays />
       <Grid container justifyContent="center" mt={25}>
         <Grid item>
           <Typography className="mian_txt">
@@ -45,9 +46,13 @@ export default function Index() {
         spacing={2}
         sx={{ padding: "20px" }}
       >
-        {citiesArray.map((x) => (
+        {citiesArray.map((x, index) => (
           <Grid item xs={2}>
-            <CityCard data={x} setSelectedCity={setSelectedCity} />
+            <CityCard
+              data={x}
+              index={index}
+              setSelectedCity={setSelectedCity}
+            />
           </Grid>
         ))}
       </Grid>
