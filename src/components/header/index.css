@@ -5,6 +5,9 @@
 }
 .header_bg {
   padding: 30px;
+  position: fixed;
+  background-color: rgb(29, 28, 28);
+  top: 0;
 }
 .header_right {
   display: flex;

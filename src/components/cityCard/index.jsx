@@ -2,10 +2,15 @@ import React from "react";
 import "./index.css";
 import { Box, Typography, Grid } from "@mui/material";
 
-export default function Index({ data, index, setSelectedCity }) {
-  const [selected, setSelected] = React.useState(false);
-  const [selectedItem, setSelectedItem] = React.useState(0);
-
+export default function Index({
+  data,
+  index,
+  setSelectedCity,
+  setSelectedItem,
+  setSelected,
+  selected,
+  selectedItem,
+}) {
   function handleSelect(id) {
     setSelectedItem(id);
     if (!selected === true) {
