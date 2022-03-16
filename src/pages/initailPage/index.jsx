@@ -60,7 +60,7 @@ export default function Index() {
 
   return (
     <Box>
-      <Header />
+      <Header setOpen={setOpen} />
 
       <Grid container justifyContent="center" mt={25}>
         <Grid item>
