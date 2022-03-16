@@ -19,6 +19,9 @@ export default function Index() {
   const [open, setOpen] = React.useState(false);
   const [setting, setSetting] = React.useState();
   console.log("setting", setting);
+  const [selectedCityForecast, setSelectedCityForecast] = useState([]);
+
+  const [isCurrentWeather, setIsCurrentWeather] = useState(true);
 
   function getRandomInt(cities, count) {
     let shuffled = cities.sort(() => 0.5 - Math.random());
@@ -31,6 +34,8 @@ export default function Index() {
     return time;
   }
 
+  /****************Weather*******************/
+
   useEffect(async () => {
     console.log("hello");
     if (selectedCity) {
@@ -40,12 +45,23 @@ export default function Index() {
       setSelectedCityData(res.data);
     }
   }, [selectedCity, setting]);
+  /***********************************/
+
+  /****************Forcasting*******************/
+  useEffect(async () => {
+    if (!isCurrentWeather) {
+      let res = await axios.get(
+        `${API_URL}/forecast?q=${selectedCity}&appid=${APP_ID}`
+      );
+      setSelectedCityForecast(res.data?.list);
+    }
+  }, [isCurrentWeather]);
+  /***********************************/
 
   return (
     <Box>
-      <Header setOpen={setOpen} />
-      {/* <WeatherComp /> */}
-      <SDays />
+      <Header />
+
       <Grid container justifyContent="center" mt={25}>
         <Grid item>
           {!selectedCity ? (
@@ -53,13 +69,46 @@ export default function Index() {
               Pick a day to see the full forecast
             </Typography>
           ) : (
-            <WeatherComp
-              nanoToTime={nanoToTime}
-              selectedCityData={selectedCityData}
-            />
+            <>
+              {isCurrentWeather ? (
+                <WeatherComp
+                  nanoToTime={nanoToTime}
+                  selectedCityData={selectedCityData}
+                />
+              ) : (
+                <SDays selectedCityForecast={selectedCityForecast} />
+              )}
+            </>
           )}
         </Grid>
       </Grid>
+
+      {selectedCity ? (
+        <Grid container justifyContent="center" mt={3}>
+          <Grid item sx={{ textAlign: "center" }}>
+            <Typography className="card_txt">Forecast</Typography>
+            <Box sx={{ display: "flex", marginTop: "20px" }}>
+              <Box
+                onClick={() => {
+                  setIsCurrentWeather(true);
+                }}
+                className="forecard_btn"
+              >
+                <Typography className="card_txt">Now</Typography>
+              </Box>
+              <Box
+                onClick={() => {
+                  setIsCurrentWeather(false);
+                }}
+                className="forecard_btn"
+              >
+                <Typography className="card_txt">7 Days</Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      ) : null}
+
       <Grid
         container
         mt={20}

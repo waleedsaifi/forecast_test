@@ -7,7 +7,7 @@ import { ReactComponent as HailSvg } from "../../images/icon-weather/weather-hai
 
 import "./index.css";
 export default function index({ selectedCityData, nanoToTime }) {
-  let { name, main, sys, weather } = selectedCityData;
+  let { name, main, sys } = selectedCityData;
   console.log("selectedCityData in Compoonet: ", selectedCityData?.weather);
 
   function RenderSvg(param) {
@@ -33,36 +33,23 @@ export default function index({ selectedCityData, nanoToTime }) {
     <>
       <Grid container justifyContent="center" spacing={2} mt={20}>
         <Grid item sx={{ textAlign: "center" }}>
-          <Typography className="card_txt">{name}</Typography>
+          <Typography className="card_txt2">{name}</Typography>
           {/* {RenderSvg(selectedCityData?.weather[0]?.main)} */}
 
-          <Typography className="card_txt">
+          <Typography className="card_txt2">
             {/* {selectedCityData?.weather[0]?.main} */}
           </Typography>
         </Grid>
         <Grid item>
-          <Typography className="card_txt">Temp: {main?.temp}</Typography>
-          <Typography className="card_txt">
+          <Typography className="card_txt2">Temp: {main?.temp}</Typography>
+          <Typography className="card_txt2">
             Feels Like: {main?.feels_like}
           </Typography>
-          <Typography className="card_txt">
+          <Typography className="card_txt2">
             Humidity: {main?.humidity}%
           </Typography>
-          <Typography className="card_txt">Sunrise: {sys?.sunrise}</Typography>
-          <Typography className="card_txt">Sunset: {sys?.sunset}</Typography>
-        </Grid>
-      </Grid>
-      <Grid container justifyContent="center" mt={3}>
-        <Grid item sx={{ textAlign: "center" }}>
-          <Typography className="card_txt">Forecast</Typography>
-          <Box sx={{ display: "flex", marginTop: "20px" }}>
-            <Box className="forecard_btn">
-              <Typography className="card_txt">Now</Typography>
-            </Box>
-            <Box className="forecard_btn">
-              <Typography className="card_txt">7 Days</Typography>
-            </Box>
-          </Box>
+          <Typography className="card_txt2">Sunrise: {sys?.sunrise}</Typography>
+          <Typography className="card_txt2">Sunset: {sys?.sunset}</Typography>
         </Grid>
       </Grid>
     </>
