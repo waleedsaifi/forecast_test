@@ -26,6 +26,7 @@ export default function Index() {
   const [selectedCityForecast, setSelectedCityForecast] = useState([]);
 
   const [isCurrentWeather, setIsCurrentWeather] = useState(true);
+  const [isForecast, setIsForecast] = useState(true);
 
   function getRandomInt(cities, count) {
     let shuffled = cities.sort(() => 0.5 - Math.random());
@@ -36,6 +37,7 @@ export default function Index() {
   /****************Weather*******************/
   useEffect(async () => {
     if (selectedCity) {
+      if (!isCurrentWeather) setIsForecast(!isForecast);
       let res = await axios.get(
         `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}&units=${setting}`
       );
@@ -46,13 +48,14 @@ export default function Index() {
 
   /****************Forcasting*******************/
   useEffect(async () => {
+    console.log("Hello form Forecast");
     if (!isCurrentWeather) {
       let res = await axios.get(
         `${API_URL}/forecast?q=${selectedCity}&appid=${APP_ID}`
       );
       setSelectedCityForecast(res.data?.list);
     }
-  }, [isCurrentWeather]);
+  }, [isCurrentWeather, isForecast]);
   /***********************************/
 
   return (
