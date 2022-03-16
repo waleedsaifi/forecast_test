@@ -34,10 +34,10 @@ export default function index({ selectedCityData, nanoToTime }) {
       <Grid container justifyContent="center" spacing={2} mt={20}>
         <Grid item sx={{ textAlign: "center" }}>
           <Typography className="card_txt">{name}</Typography>
-          {RenderSvg(selectedCityData?.weather[0]?.main)}
+          {/* {RenderSvg(selectedCityData?.weather[0]?.main)} */}
 
           <Typography className="card_txt">
-            {selectedCityData?.weather[0]?.main}
+            {/* {selectedCityData?.weather[0]?.main} */}
           </Typography>
         </Grid>
         <Grid item>

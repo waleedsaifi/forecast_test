@@ -5,6 +5,12 @@
   text-align: center;
   color: white !important ;
   cursor: pointer;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+  max-height: 30px;
 }
 .card_main_after {
   padding: 20px;

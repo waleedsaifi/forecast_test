@@ -7,6 +7,7 @@ import CityCard from "../../components/cityCard";
 import WeatherComp from "../../components/weatherComp";
 import "./index.css";
 import { Cities } from "../../data/data";
+import SettingModal from "../../components/settingsModal";
 const API_URL = "https://api.openweathermap.org/data/2.5";
 const CITIES_COUNT = 18;
 const APP_ID = process.env.WeatherAPI || "920ecebafee2bcc8878d5e974c9b753d";
@@ -15,6 +16,9 @@ export default function Index() {
   const [citiesArray] = useState(getRandomInt(Cities, CITIES_COUNT));
   const [selectedCity, setSelectedCity] = useState();
   const [selectedCityData, setSelectedCityData] = useState({});
+  const [open, setOpen] = React.useState(false);
+  const [setting, setSetting] = React.useState();
+  console.log("setting", setting);
 
   function getRandomInt(cities, count) {
     let shuffled = cities.sort(() => 0.5 - Math.random());
@@ -28,17 +32,18 @@ export default function Index() {
   }
 
   useEffect(async () => {
+    console.log("hello");
     if (selectedCity) {
       let res = await axios.get(
-        `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}`
+        `${API_URL}/weather?q=${selectedCity}&appid=${APP_ID}&units=${setting}`
       );
       setSelectedCityData(res.data);
     }
-  }, [selectedCity]);
+  }, [selectedCity, setting]);
 
   return (
     <Box>
-      <Header />
+      <Header setOpen={setOpen} />
       {/* <WeatherComp /> */}
       <SDays />
       <Grid container justifyContent="center" mt={25}>
@@ -72,6 +77,7 @@ export default function Index() {
           </Grid>
         ))}
       </Grid>
+      <SettingModal open={open} setOpen={setOpen} setSetting={setSetting} />
     </Box>
   );
 }
