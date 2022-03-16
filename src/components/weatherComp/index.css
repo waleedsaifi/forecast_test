@@ -1,18 +1,21 @@
 .forecard_btn_before {
-  width: 150px;
+  width: 150px !important;
   border: 2px solid #0a84ff;
   border-radius: 10px;
   text-align: center;
-  margin-left: 15px;
+  margin-left: 15px !important;
   color: white;
+  cursor: pointer;
 }
+
 .forecard_btn_after {
-  width: 150px;
+  width: 150px !important;
   background-color: white;
   border-radius: 10px;
   text-align: center;
-  margin-left: 15px;
+  margin-left: 15px !important;
   color: #0a84ff;
+  cursor: pointer;
 }
 
 .card_txt2 {

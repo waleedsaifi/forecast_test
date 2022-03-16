@@ -8,6 +8,7 @@ import WeatherComp from "../../components/weatherComp";
 import "./index.css";
 import { Cities } from "../../data/data";
 import SettingModal from "../../components/settingsModal";
+import ToggleComp from "../../components/toggleBtns";
 const API_URL = "https://api.openweathermap.org/data/2.5";
 const CITIES_COUNT = 18;
 const APP_ID = process.env.WeatherAPI || "920ecebafee2bcc8878d5e974c9b753d";
@@ -78,29 +79,11 @@ export default function Index() {
       </Grid>
 
       {selectedCity ? (
-        <Grid container justifyContent="center" mt={3}>
-          <Grid item sx={{ textAlign: "center" }}>
-            <Typography className="card_txt">Forecast</Typography>
-            <Box sx={{ display: "flex", marginTop: "20px" }}>
-              <Box
-                onClick={() => {
-                  setIsCurrentWeather(true);
-                }}
-                className="forecard_btn"
-              >
-                <Typography className="card_txt">Now</Typography>
-              </Box>
-              <Box
-                onClick={() => {
-                  setIsCurrentWeather(false);
-                }}
-                className="forecard_btn"
-              >
-                <Typography className="card_txt">7 Days</Typography>
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
+        <ToggleComp
+          isClick={isClick}
+          setIsCurrentWeather={setIsCurrentWeather}
+          setIsClick={setIsClick}
+        />
       ) : null}
 
       <Grid
