@@ -12,7 +12,6 @@ export default function Index({
   selectedItem,
 }) {
   function handleSelect(id, data) {
-    console.log("Hello from data: ", data);
     setSelectedCity(data);
     setSelectedItem(id);
     if (!selected === true) {

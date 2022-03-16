@@ -48,7 +48,6 @@ export default function Index() {
 
   /****************Forcasting*******************/
   useEffect(async () => {
-    console.log("Hello form Forecast");
     if (!isCurrentWeather) {
       let res = await axios.get(
         `${API_URL}/forecast?q=${selectedCity}&appid=${APP_ID}`
