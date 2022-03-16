@@ -21,7 +21,7 @@ export default function Index() {
   const [selectedCityData, setSelectedCityData] = useState({});
   const [open, setOpen] = React.useState(false);
   const [isClick, setIsClick] = React.useState(false);
-  const [setting, setSetting] = React.useState();
+  const [setting, setSetting] = React.useState("standard");
 
   const [selectedCityForecast, setSelectedCityForecast] = useState([]);
 
@@ -79,29 +79,6 @@ export default function Index() {
       </Grid>
 
       {selectedCity ? (
-        // <Grid container justifyContent="center" mt={3}>
-        //   <Grid item sx={{ textAlign: "center" }}>
-        //     <Typography className="card_txt">Forecast</Typography>
-        //     <Box sx={{ display: "flex", marginTop: "20px" }}>
-        //       <Box
-        //         onClick={() => {
-        //           setIsCurrentWeather(true);
-        //         }}
-        //         className="forecard_btn"
-        //       >
-        //         <Typography className="card_txt">Now</Typography>
-        //       </Box>
-        //       <Box
-        //         onClick={() => {
-        //           setIsCurrentWeather(false);
-        //         }}
-        //         className="forecard_btn"
-        //       >
-        //         <Typography className="card_txt">7 Days</Typography>
-        //       </Box>
-        //     </Box>
-        //   </Grid>
-        // </Grid>
         <ToggleComp
           setIsCurrentWeather={setIsCurrentWeather}
           setIsClick={setIsClick}
@@ -130,7 +107,15 @@ export default function Index() {
           </Grid>
         ))}
       </Grid>
-      <SettingModal open={open} setOpen={setOpen} setSetting={setSetting} />
+      <SettingModal
+        open={open}
+        setOpen={setOpen}
+        setSetting={setSetting}
+        setSelectedItem={setSelectedItem}
+        setSelected={setSelected}
+        selected={selected}
+        selectedItem={selectedItem}
+      />
     </Box>
   );
 }
